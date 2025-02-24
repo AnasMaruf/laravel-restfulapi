@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\API\AuthenticationController;
 use App\Http\Controllers\API\ProductController;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/user', function (Request $request) {
@@ -21,3 +23,5 @@ Route::prefix('/products')->middleware('auth:sanctum')->group(function () {
     Route::patch('/{id}', [ProductController::class, 'update']);
     Route::delete('/{id}', [ProductController::class, 'destroy']);
 });
+
+
